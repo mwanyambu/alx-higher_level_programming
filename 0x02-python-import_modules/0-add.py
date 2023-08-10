@@ -9,5 +9,5 @@ def main():
     print("{0} + {1} = {2}".format(a, b, add(a, b)))
 
 
-if __name__ == "__main__":
+if __name__ = "__main__":
     main()
