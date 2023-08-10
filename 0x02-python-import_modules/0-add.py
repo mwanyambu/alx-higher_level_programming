@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-from add_0 import add
 """import the add function from the add_0 module to perform addition"""
+from add_0 import add
 def main():
     a = 1
     b = 2
