@@ -3,4 +3,8 @@ def max_integer(my_list=[]):
     if my_list == "":
         return None
     else:
-        return max(my_list)
+        max_val = my_list[0]
+        for i in my_list:
+            if i > max_val:
+                nax_val = i
+        return max_val
