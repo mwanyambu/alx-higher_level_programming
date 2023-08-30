@@ -59,14 +59,14 @@ class Square:
         for x in range(self.__size):
             print(" " * self.__position[0] + "#" * self.__size)
 
-        def __str__(self):
-            """string representation of square"""
-            if self.__size == 0:
-                return ""
+    def __str__(self):
+        """string representation of square"""
+        if self.__size == 0:
+            return ""
 
-            sq = "" 
-            for y in range(self.__position[1]):
-                sq += "\n"
-            for y in range(self.__size):
-                sq += " " * self.__position[0] + "#" * self.__size + "\n"
-            return sq.rstrip()
+        sq = "" 
+        for y in range(self.__position[1]):
+            sq += "\n"
+        for y in range(self.__size):
+            sq += " " * self.__position[0] + "#" * self.__size + "\n"
+        return sq.rstrip()
