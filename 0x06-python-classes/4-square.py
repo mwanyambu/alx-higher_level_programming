@@ -9,14 +9,13 @@ class Square:
         """calculates the area of a square"""
         return self.__size * self.__size
 
+    def __init__(self, size=0):
+        self.__size = size
+
     @property
     def size(self):
         """property to retrieve size"""
         return self.__size
-
-    def __init__(self, size=0):
-        """initialization of size"""
-        self.__size = size
 
     @size.setter
     def size(self, value):
