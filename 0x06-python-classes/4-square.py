@@ -9,10 +9,6 @@ class Square:
         """calculates the area of a square"""
         return self.__size * self.__size
 
-    def size(self):
-        """size of the square"""
-        return self.__size
-
     @property
     def size(self):
         """property to retrieve size"""
