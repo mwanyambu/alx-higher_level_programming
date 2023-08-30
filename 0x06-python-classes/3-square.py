@@ -1,5 +1,12 @@
 #!/usr/bin/python3
+
+"""a class square that defines a square"""
 class Square:
+
+    """
+    area calculates the area of a square
+    size: private instance attribute
+    """
 
     def area(self):
         return self.__size * self.__size

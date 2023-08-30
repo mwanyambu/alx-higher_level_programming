@@ -1,7 +1,16 @@
 #!/usr/bin/python3
+
+"""a class square that defines a square"""
+
+
 class Square:
 
+    """size: private instance attribute"""
+
+
     def __init__(self, size=0):
+
+        """size must be an integer and not less than zero"""
 
 
         if not isinstance(size, int):
