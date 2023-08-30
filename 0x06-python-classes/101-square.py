@@ -64,7 +64,7 @@ class Square:
         if self.__size == 0:
             return ""
 
-        sq = "" 
+        sq = ""
         for y in range(self.__position[1]):
             sq += "\n"
         for y in range(self.__size):
