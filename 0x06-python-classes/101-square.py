@@ -17,8 +17,6 @@ class Square:
 
     def __init__(self, size=0, position=(0, 0)):
         """initializes the size and position"""
-        self.__size = 0
-        self.__position = (0, 0)
         self.size = size
         self.position = position
 
@@ -55,10 +53,20 @@ class Square:
             print()
             return
 
-        sq = ""
         for x in range(self.__position[1]):
             print()
 
         for x in range(self.__size):
-            sq += " " * self.__position[0] + "#" * self.__size + "\n"
+            print(" " * self.__position[0] + "#" * self.__size)
+
+        def __str__(self):
+            """string representation of square"""
+            if self.__size == 0:
+                return ""
+
+            sq = "" 
+            for y in range(self.__position[1]):
+                sq += "\n"
+            for y in range(self.__size):
+                sq += " " * self.__position[0] + "#" * self.__size + "\n"
             return sq.rstrip()
