@@ -4,4 +4,5 @@
 
 
 class Square:
+    """no arguments"""
     pass
