@@ -9,12 +9,6 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = '#'
 
-    def __init__(self, width=0, height=0):
-        """initialize width and height"""
-        self.width = width
-        self.height = height
-        Rectangle.number_of_instances += 1
-
     @property
     def width(self):
         """retrieve width"""
@@ -43,6 +37,12 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
+    def __init__(self, width=0, height=0):
+        """initialize width and height"""
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
+
     def area(self):
         """returns the area of a rectangle"""
         return self.__width * self.__height
@@ -51,7 +51,7 @@ class Rectangle:
         """returns the perimeter of a rectangle"""
         if self.__width == 0 or self.__height == 0:
             return 0
-        return ((self.__width * 2) + (self.__height * 2))
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """returns a string representation of a rectangle
@@ -59,8 +59,13 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
+        new = []
         sym = str(self.print_symbol)
-        return "\n".join([sym * self.__width] * self.__height)
+        for x in range(self.__height):
+            [new.append(sym) for y in range(self.__width)]
+            if x != self.__height - 1:
+                new.append("\n")
+        return "".join(new)
 
     def __repr__(self):
         """returns a string representation of a rectangle"""
@@ -78,7 +83,9 @@ class Rectangle:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
-        if rect_1.area() >= rect_2.area():
+        if rect_1.area() > rect_2.area():
             return rect_1
-        else:
+        elif rect_1.area() < rect_2.area():
             return rect_2
+        else:
+            return rect_1
