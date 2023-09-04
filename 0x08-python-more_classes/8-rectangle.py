@@ -9,6 +9,12 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = '#'
 
+    def __init__(self, width=0, height=0):
+        """initialize width and height"""
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
+
     @property
     def width(self):
         """retrieve width"""
@@ -36,12 +42,6 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-    def __init__(self, width=0, height=0):
-        """initialize width and height"""
-        self.width = width
-        self.height = height
-        Rectangle.number_of_instances += 1
 
     def area(self):
         """returns the area of a rectangle"""
