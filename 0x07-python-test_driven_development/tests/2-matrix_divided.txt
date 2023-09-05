@@ -1,0 +1,36 @@
+2-matrix_divided module
+
+usage matrix_divided
+
+import function
+	>>>matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+tests
+	>>>matrix_divided([[2, 5], [3, 7]], "div")
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+	>>>matrix_divided([[2, 5], [3, 7]], 0)
+	Traceback (most recent call last):
+	ZeroDivisionError: division by 0
+
+	>>>matrix_divided("Matrix", 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>>matrix_divided([[2, 5, 7], [3, 7], 2)
+	Traceback (most recent call last):
+	TypeError: each row of matrix must have the same size
+
+	>>>matrix_divided([["Best", "School"], [3, 7], 2)
+	Traceback (mosr recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>>matrix_divided([[2,5]])
+	Traceback (most recent call last):
+	TypeError: matrxi_divided() missing 1 required positional argument: 'div'
+
+	>>>matrix_divided()
+	Traceback (most recent call last):
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
