@@ -2,6 +2,7 @@
 
 "define locked class"
 
+
 class LockedClass:
     """
     prevent user form dynamically creating new instance
