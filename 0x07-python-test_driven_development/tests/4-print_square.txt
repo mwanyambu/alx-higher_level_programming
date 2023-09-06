@@ -1,0 +1,50 @@
+"print_square.txt" module
+
+using "print_square"
+
+import "print_square" from "print_square"
+
+	>>>print_square = __import__('4-print_square').print_square
+
+Tests
+
+	>>>print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 positional argument: 'size'
+
+
+	>>>print_square(-3)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
+
+
+	>>>print_square(3)
+	###
+	###
+	###
+
+
+	>>>print_square("Square")
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+
+	>>>print_square(2.5)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+	>>>print_square(6)
+	######
+	######
+	######
+	######
+	######
+	######
+
+
+	>>>print_square(-2.5)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+	>>>print_square(0)
+

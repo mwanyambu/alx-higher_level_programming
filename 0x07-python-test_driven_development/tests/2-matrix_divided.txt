@@ -1,8 +1,8 @@
-2-matrix_divided module
+"2-matrix_divided" module
 
-usage matrix_divided
+usage "matrix_divided"
 
-import function
+import "matrix_divided" from "matrix_divided"
 	>>>matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 tests
@@ -34,3 +34,14 @@ tests
 	Traceback (most recent call last):
 	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
 
+	>>>matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+	>>>matrix_divided([[1, 2], [2, 1]], float('inf'))
+	[[0.0, 0.0], [0.0, 0.0]]
+
+	>>>matrix = [[1, 2]]
+	>>>matrix_divided(matrix, 3)
+	[[0.33, 0.67]]
+	>>>print(matrix)
+	[[1, 2]]
