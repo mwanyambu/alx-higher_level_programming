@@ -7,5 +7,5 @@ def add_attribute(obj, attribute, value):
     """adds attribute to obj"""
     if hasattr(obj, "__dict__"):
         obj.__setattr__(attribute, value)
-    esle:
+    else:
         raise TypeError("can't add new attribute")
