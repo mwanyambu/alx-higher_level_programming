@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+ """tests"""
+import unittest
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+class Test_BaseGeometry(unittest.TestCase):
+	def test_area(self):
+		basegeo = BaseGeometry()
+		with self.assertRaises(Exception) as context:
+			basegeo.area()
+		self.assertEqual(str(context.excepion),  "area() is not implemented")
+
+	def test_integer_validator(self):
+		basegeo = BaseGeometry()
+		basegeo.integer_validator("height", 12)
+		basgeo.integer_validator("width", 50)
+		with self.assertRaises(TypeError) as context:
+			basegeo.integer_validator("name", "john")
+		self.assertEqual(str(context.exception), "name must be an intger")
+		with self.assertRaises(ValueError) as context:
+			basegeo.integer_validator("age", 0)
+		self.assertEqual(str(context.exception), "age must be greater than 0")
+		with self.assertRaises(ValueError) as context:
+			basegeo.integer_validator("distance", -4)
+		self.assertEqual(str(context.exception), "distance must be greater than 0")
+
+if __name__ == "__main__":
+unittest.main()
