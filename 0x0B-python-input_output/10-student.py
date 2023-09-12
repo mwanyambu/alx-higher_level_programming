@@ -26,10 +26,8 @@ class Student:
 
         if attrs is None:
             return self.__dict__
-        
         x = {}
         for y in attrs:
             if y in self.__dict__:
                 x[y] = self.__dict__[y]
         return x
-

@@ -26,4 +26,4 @@ class Student(object):
     def reload_from_json(self, json):
         """replace all attrs of student"""
         for k, v in json.items():
-                setattr(self, k, v)
+            setattr(self, k, v)
