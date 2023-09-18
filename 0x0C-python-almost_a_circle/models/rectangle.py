@@ -5,10 +5,10 @@
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """class Rectangle that inherits from Base"""
 
-    
     def __init__(self, width, height, x=0, y=0, id=None):
         """initialize parameters"""
         self.width = width
@@ -25,7 +25,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """set width"""
-        if not isinstance (value, int):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -119,10 +119,10 @@ class Rectangle(Base):
                 elif k == "y":
                     self.y = v
 
-
     def __str__(self):
         """return string representation of rectangle"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle]({self.id})
+        {self.x}/{self.y} - {self.width}/{self.height}"
 
     def to_dictionary(self):
         """dictionary representation of a rectangle"""
