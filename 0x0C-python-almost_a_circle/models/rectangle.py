@@ -121,8 +121,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """return string representation of rectangle"""
-        return f"[Rectangle]({self.id})
-        {self.x}/{self.y} - {self.width}/{self.height}"
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
 
     def to_dictionary(self):
         """dictionary representation of a rectangle"""
