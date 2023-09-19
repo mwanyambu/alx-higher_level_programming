@@ -97,8 +97,7 @@ class Base:
 
                 lst = csv.DictReader(f, fieldheads=fieldheads)
 
-                lst = [dict([k, int(v)] for k, v in d.items())
-                        for d in lst]
+                lst = [dict([k, int(v)] for k, v in d.items())for d in lst]
                 return [cls.create(**d) for d in lst]
         except IOError:
             return []
