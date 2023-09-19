@@ -2,6 +2,7 @@
 
 """class base"""
 import json
+import csv
 
 
 class Base:
@@ -27,10 +28,10 @@ class Base:
     def save_to_file(cls, list_objs):
         """json string representation"""
         if list_objs is None:
-            return "[]"
+            list_objs = []
 
         filename = cls.__name__ + ".json"
-        with open(filename, 'w') as f:
+        with open(filename, 'w', encoding='utf-8') as f:
             jstring = cls.to_json_string(
                     [obj.to_dictionary() for obj in list_objs])
             f.write(jstring)
@@ -39,7 +40,7 @@ class Base:
     def from_json_string(json_string):
         """returns list of the JSON string representation"""
         if json_string is None or len(json_string) == 0:
-            return "[]"
+            return []
         return json.loads(json_string)
 
     @classmethod
@@ -64,4 +65,41 @@ class Base:
                 instances = [cls.create(**dictionary) for dic in dictionaries]
                 return instances
         except FileNotFoundError:
-            return "[]"
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves to csv file"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline="") as f:
+            if list_objs is None or list_objs == []:
+                f.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldheads = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldheads = ["id", "size", "x", "y"]
+
+                writes = csv.Dictwriter(f, fieldheads=fieldheads)
+                for obj in list_objs:
+                    writes.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """reads from csv"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as f:
+                if cls.__name__ == "Rectangle":
+                    fieldheads = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldheads = ["id", "size", "x", "y"]
+
+                lst = csv.DictReader(f, fieldheads=fieldheads)
+
+                lst = [dict([k, int(v)] for k, v in d.items())
+                        for d in lst]
+                return [cls.create(**d) for d in lst]
+        except IOError:
+            return []
+
