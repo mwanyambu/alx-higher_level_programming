@@ -102,4 +102,3 @@ class Base:
                 return [cls.create(**d) for d in lst]
         except IOError:
             return []
-
