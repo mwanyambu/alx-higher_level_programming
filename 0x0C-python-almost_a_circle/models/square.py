@@ -2,7 +2,7 @@
 
 from models.rectangle import Rectangle
 
-"""difines a class square"""
+"""defines a class square"""
 
 
 class Square(Rectangle):
@@ -35,34 +35,15 @@ class Square(Rectangle):
             **kwargs(dict): keyword argument for updating attributes
 
         """
-        if args and len(args) != 0:
-            j = 0
-            for a in args:
-                if j == 0:
-                    if a is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = a
-                elif j == 1:
-                    self.size = a
-                elif j == 2:
-                    self.x = a
-                elif j == 3:
-                    self.y = a
-                j += 1
-        elif kwargs and len(kwargs) != 0:
+        if args:
+            attributes = ["id", "size", "x", "y"]
+            for attribute, arg in enumerate(args):
+                if attribute < len(attributes):
+                    setattr(self, attributes[attribute], arg)
+
+        if kwargs:
             for k, v in kwargs.items():
-                if k == "id":
-                    if v is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = v
-                elif k == "size":
-                    self.size = v
-                elif k == "x":
-                    self.x = v
-                elif k == "y":
-                    self.y = v
+                setattr(self, k, v)
 
     def to_dictionary(self):
         """
