@@ -2,6 +2,8 @@
 
 from models.rectangle import Rectangle
 
+"""difines a class square"""
+
 
 class Square(Rectangle):
     """class representing a square that inherits from rectangle"""
@@ -15,13 +17,6 @@ class Square(Rectangle):
             id (int): identifier for the square
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
-
-    def __str__(self):
-        """
-        Returns a string representation of square
-        """
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
     def size(self):
@@ -30,15 +25,14 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        """set size of a square"""
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
         """update attributes of a square
         Args:
-            *args: positional arguments for updating attributes
-            **kwargs: keyword argument for updating attributes
+            *args(int): positional arguments for updating attributes
+            **kwargs(dict): keyword argument for updating attributes
 
         """
         if args and len(args) != 0:
@@ -79,3 +73,8 @@ class Square(Rectangle):
                 "x": self.x,
                 "y": self.y
             }
+
+    def __str__(self):
+        """returns the string representation of a square"""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
+                                                 self.width)
