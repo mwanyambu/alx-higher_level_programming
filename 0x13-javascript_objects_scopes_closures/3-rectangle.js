@@ -7,7 +7,8 @@ module.exports = class Rectangle {
       this.height = h;
     }
   }
-  print() {
+ 
+  print () {
     for (let y = 0; y < this.height; y++) {
       console.log('X'.repeat(this.width));
     }
