@@ -1,24 +1,24 @@
 #!/usr/bin/python3
 
 """
-scrpit initializes class
+scrpit initializes class state
 """
 
 
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import Base, State
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
 
-class City(Base):
+class State(Base):
     """
-    class city defined
+    class state
     """
-    __tablename__ = 'cities'
+    __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, nullable=False,
                 unique=True, autoincrement=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)
+    cities = relationship("City", backref="state", cascade="delete")
