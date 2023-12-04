@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
-import urllib.request
 """
-script fetches a url
+script fetches https://alx-intranet.hbtn.io/status
 """
+from urllib.request import Request, urlopen
 
 
 if __name__ == "__main__":
-    url_request = urllib.request("https://alx-intranet.hbtn.io/status")
-    with urllib.request.urlopen(url_request) as url_response:
+    url_request = Request("https://alx-intranet.hbtn.io/status")
+    with urlopen(url_request) as url_response:
         body = url_response.read()
         print("Body response:")
         print("\t- type: {}".format(type(body)))
