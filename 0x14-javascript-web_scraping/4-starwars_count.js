@@ -13,7 +13,7 @@ request(apiUrl, function (_err, _res, body) {
     const chars = body[x].chars;
 
     for (let y = 0; y < chars.length; ++y) {
-      const charr = chars[y]
+      const charr = chars[y];
       const charId = charr.split('/')[5];
 
       if (charId === '18') {
